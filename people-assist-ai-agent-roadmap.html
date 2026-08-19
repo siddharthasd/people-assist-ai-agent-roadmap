@@ -158,12 +158,14 @@ nav label:hover { color: var(--color-primary); }
 #governance-tab1:checked ~ #governance-panel1,
 #governance-tab2:checked ~ #governance-panel2 { display: block; }
 
-#appendix-tab1:checked ~ .subtab-nav label[for="appendix-tab1"] {
+#appendix-tab1:checked ~ .subtab-nav label[for="appendix-tab1"],
+#appendix-tab2:checked ~ .subtab-nav label[for="appendix-tab2"] {
   border-bottom-color: var(--color-primary);
   color: var(--color-primary);
   font-weight: 700;
 }
-#appendix-tab1:checked ~ #appendix-panel1 { display: block; }
+#appendix-tab1:checked ~ #appendix-panel1,
+#appendix-tab2:checked ~ #appendix-panel2 { display: block; }
 
 /* ── MAIN CONTENT ── */
 main { padding: var(--space-lg); max-width: 1100px; margin: 0 auto; }
@@ -1273,9 +1275,11 @@ footer {
   <section class="tab-panel" id="panel5">
 
     <input type="radio" name="appendix-nav" id="appendix-tab1" checked>
+    <input type="radio" name="appendix-nav" id="appendix-tab2">
 
     <div class="subtab-nav">
       <label for="appendix-tab1">Orchestration Models</label>
+      <label for="appendix-tab2">Workday Sana Self-Service Agent Capabilities</label>
     </div>
 
     <div class="subtab-panel" id="appendix-panel1">
@@ -1392,6 +1396,209 @@ footer {
       <strong>Key implication.</strong> The v1.2 orchestrator hierarchy provides a necessary stepping stone. It establishes multi-agent routing before the Microsoft Copilot Studio agent loop construct is available. Once v2.0 arrives, the platform moves from a tree structure to a reasoning loop, enabling People Assist to handle complex, cross-domain, and multi-step workforce requests that a fixed hierarchy cannot accommodate.
     </div>
     </div><!-- end appendix-panel1 -->
+
+    <!-- Subtab panel: Workday Sana -->
+    <div class="subtab-panel" id="appendix-panel2">
+      <div class="section-eyebrow">Workday Sana</div>
+      <div class="section-title">Self-Service Agent Capabilities</div>
+      <p class="section-desc">Workday Sana is the embedded AI assistant within the Workday platform. The following tables catalogue the available agent skills, their enablement status, and scope within the Accenture deployment.</p>
+
+      <!-- Enabled Skills -->
+      <div style="margin-bottom:var(--space-md);">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-purple-dark);margin-bottom:var(--space-sm);">Enabled Skills</div>
+        <div class="table-wrap" style="overflow-x:auto;">
+          <table style="min-width:900px;">
+            <thead>
+              <tr>
+                <th style="width:16%;">Skill Name</th>
+                <th style="width:12%;">Category</th>
+                <th style="width:12%;">Domain</th>
+                <th>Description</th>
+                <th style="width:7%;">Type</th>
+                <th style="width:8%;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600;">ESS - HCM - Base</td>
+                <td>Employee Self-Service</td>
+                <td>Human Capital Management</td>
+                <td><strong>Core HCM data retrieval for employees.</strong> Lets employees retrieve core HCM information, including worker profiles, compensation history, benefits elections, and team structures. Covers bonus history, healthcare elections, retirement savings, and total compensation. Provides a read-only view of personal and organisational data.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#cce5ff;color:#004085;border:1px solid #99caff;">Read</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#d1e7dd;color:#155724;">Enabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">ESS - HCM - Advanced</td>
+                <td>Employee Self-Service</td>
+                <td>Human Capital Management</td>
+                <td><strong>Employee-initiated updates to personal and dependent records.</strong> Extends the base HCM skill by allowing employees to update their own records. Supports changes to personal information, home contact details, legal name, and dependent data. Also enables employees to request reference letters, making this the primary write-enabled ESS skill currently active.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#fff3cd;color:#856404;">Write</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#d1e7dd;color:#155724;">Enabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">ESS - Talent Management - Base</td>
+                <td>Employee Self-Service</td>
+                <td>Talent Management</td>
+                <td><strong>Read access to employee development, learning, and career data.</strong> Provides employees with read access to their professional development data. Covers performance goals, feedback history, performance reviews, talent profile details, and internal job listings. Also surfaces learning content, assignments, transcripts, and journeys to support career visibility.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#cce5ff;color:#004085;border:1px solid #99caff;">Read</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#d1e7dd;color:#155724;">Enabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">ESS - Talent Management - Advanced</td>
+                <td>Employee Self-Service</td>
+                <td>Talent Management</td>
+                <td><strong>Employee-driven career actions including reviews, goals, and referrals.</strong> Enables employees to take action on their own career growth. Supports initiating self-service performance reviews, managing personal goals, giving and requesting feedback, and creating employee referrals. Designed to complement the base talent skill by moving employees from viewing to acting.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#fff3cd;color:#856404;">Write</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#d1e7dd;color:#155724;">Enabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">MSS - HCM - Base</td>
+                <td>Manager Self-Service</td>
+                <td>Human Capital Management</td>
+                <td><strong>Foundational team visibility for managers and HR partners.</strong> Gives managers and HR partners read access to essential team information. Covers direct report details, team member listings, and worker history. Provides the foundational people data layer a manager needs without enabling transactional or change actions.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#cce5ff;color:#004085;border:1px solid #99caff;">Read</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#d1e7dd;color:#155724;">Enabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">MSS - Talent Management - Base</td>
+                <td>Manager Self-Service</td>
+                <td>Talent Management</td>
+                <td><strong>Manager visibility into team goals, learning, and performance status.</strong> Supports managers in monitoring team development through read access to talent data. Covers team goals, team learning status, team performance reviews, and candidate status. Provides visibility into the development pipeline without enabling managers to make changes.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#cce5ff;color:#004085;border:1px solid #99caff;">Read</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#d1e7dd;color:#155724;">Enabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Guide</td>
+                <td>Employee Self-Service</td>
+                <td>Navigation</td>
+                <td><strong>Intelligent navigation assistant directing employees to the right Workday task.</strong> Acts as an intelligent navigation assistant within Workday. Uses user context and deep links to redirect employees to the specific task or report needed to resolve their query. Functions as a fallback layer when other skills cannot handle a request natively.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#cce5ff;color:#004085;border:1px solid #99caff;">Read</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#d1e7dd;color:#155724;">Enabled</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Disabled Skills -->
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-sm);">Disabled Skills</div>
+        <div class="table-wrap" style="overflow-x:auto;">
+          <table style="min-width:900px;">
+            <thead>
+              <tr>
+                <th style="width:16%;">Skill Name</th>
+                <th style="width:12%;">Category</th>
+                <th style="width:12%;">Domain</th>
+                <th>Description</th>
+                <th style="width:7%;">Type</th>
+                <th style="width:8%;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600;">ESS - Payroll - Base</td>
+                <td>Employee Self-Service</td>
+                <td>Payroll</td>
+                <td><strong>Employee access to payslips, tax forms, and pay details.</strong> Streamlines employee access to payroll and tax information. Covers payslip retrieval, tax form details, tax elections, direct deposit details, pay modelling, and next pay date. A high-value read skill for reducing payroll-related HR queries.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#cce5ff;color:#004085;border:1px solid #99caff;">Read</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">ESS - Financial Management - Base</td>
+                <td>Employee Self-Service</td>
+                <td>Financial Management</td>
+                <td><strong>Read access to employee expense history and order records.</strong> Provides employees with read access to their financial transaction history. Covers expense history and order records. Intended as the foundational layer before the advanced financial skill enables expense submission.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#cce5ff;color:#004085;border:1px solid #99caff;">Read</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">ESS - Financial Management - Advanced</td>
+                <td>Employee Self-Service</td>
+                <td>Financial Management</td>
+                <td><strong>Employee-initiated expense creation and submission.</strong> Enables employees to take action on financial transactions directly through the agent. Supports creating manual expense entries and submitting expense reports. Note: this skill is marked ineligible, indicating a missing SKU beyond standard configuration.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#fff3cd;color:#856404;">Write</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">ESS - Workforce &amp; Frontline Management - Base</td>
+                <td>Employee Self-Service</td>
+                <td>Workforce Management</td>
+                <td><strong>Employee read access to time, absence balances, and shift schedules.</strong> Provides employees with read access to time, scheduling, and absence data. Covers absence balances, time-off types, time-off events, shift schedules, holiday calendars, and time blocks. Particularly relevant for frontline and shift-based workers.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#cce5ff;color:#004085;border:1px solid #99caff;">Read</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">ESS - Workforce &amp; Frontline Management - Advanced</td>
+                <td>Employee Self-Service</td>
+                <td>Workforce Management</td>
+                <td><strong>Employee-driven time, absence, and shift actions for frontline workers.</strong> Empowers employees to take action on complex time and absence tasks. Supports requesting, editing, and cancelling time off, entering and updating time blocks, checking in and out of shifts, and submitting time. A critical capability gap for frontline and hourly worker use cases.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#fff3cd;color:#856404;">Write</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">ESS - Help - Advanced</td>
+                <td>Employee Self-Service</td>
+                <td>Help &amp; Support</td>
+                <td><strong>Employee case creation for unresolved HR queries.</strong> Enables employees to submit support cases directly through the agent. Moves the interaction beyond information retrieval into active case creation. Essential for closing the loop on queries the agent cannot resolve through existing knowledge or navigation skills.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#fff3cd;color:#856404;">Write</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">MSS - HCM - Advanced</td>
+                <td>Manager Self-Service</td>
+                <td>Human Capital Management</td>
+                <td><strong>Manager-initiated job changes and workforce lifecycle transactions.</strong> Empowers managers to initiate workforce lifecycle transactions for their direct reports. Currently limited to initiating job change actions. Extends the base HCM skill by enabling managers to move beyond viewing team data to executing organisational updates.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#fff3cd;color:#856404;">Write</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">MSS - Payroll - Advanced</td>
+                <td>Manager Self-Service</td>
+                <td>Payroll</td>
+                <td><strong>Manager-initiated payroll input requests for the team.</strong> Enables managers to initiate high-value payroll actions for their team. Currently supports requesting payroll inputs. Relevant for organisations where managers have payroll approval or input responsibilities in the pay cycle.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#fff3cd;color:#856404;">Write</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">MSS - Talent Management - Advanced</td>
+                <td>Manager Self-Service</td>
+                <td>Talent Management</td>
+                <td><strong>Manager-driven performance, goals, and team development actions.</strong> Enables managers to drive the performance and development cycle for their team. Supports initiating performance reviews for workers, managing worker goals, creating and updating organisational goals, and requesting feedback on behalf of workers. The write counterpart to the base talent skill.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#fff3cd;color:#856404;">Write</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">MSS - Workforce &amp; Frontline Management - Base</td>
+                <td>Manager Self-Service</td>
+                <td>Workforce Management</td>
+                <td><strong>Manager and timekeeper visibility into team time and absence records.</strong> Provides managers and timekeepers with read access to team time and absence data. Covers submitted time entries, time blocks, and direct report time-off records. Supports supervisory visibility without enabling approval or edit actions.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#cce5ff;color:#004085;border:1px solid #99caff;">Read</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">MSS - Workforce &amp; Frontline Management - Advanced</td>
+                <td>Manager Self-Service</td>
+                <td>Workforce Management</td>
+                <td><strong>Manager and timekeeper actions on team time entries and time blocks.</strong> Enables managers and timekeepers to act on team time entries and time blocks. Supports approving, denying, and sending back submitted time, as well as creating, editing, and deleting time blocks for workers. Essential for organisations with manager-driven time approval workflows.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#fff3cd;color:#856404;">Write</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Policy Intelligence</td>
+                <td>Employee Self-Service</td>
+                <td>Knowledge Management</td>
+                <td><strong>Instant policy answers from connected knowledge base articles.</strong> Provides instant answers to company policy questions by searching connected knowledge base articles. Uses a single document search tool to surface relevant policy content in response to employee queries. Requires a connected knowledge base source to function.</td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#cce5ff;color:#004085;border:1px solid #99caff;">Read</span></td>
+                <td><span style="display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;background:#e9ecef;color:#6c757d;">Disabled</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- end appendix-panel2 -->
+
   </section>
 
   <!-- ── PANEL 3 REMOVED: content moved to panel1 roadmap-panel1 ── -->
