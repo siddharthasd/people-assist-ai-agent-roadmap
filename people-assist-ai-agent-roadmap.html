@@ -119,13 +119,15 @@ nav label:hover { color: var(--color-primary); }
 .subtab-panel { display: none; }
 
 #notif-tab1:checked ~ .subtab-nav label[for="notif-tab1"],
-#notif-tab2:checked ~ .subtab-nav label[for="notif-tab2"] {
+#notif-tab2:checked ~ .subtab-nav label[for="notif-tab2"],
+#notif-tab3:checked ~ .subtab-nav label[for="notif-tab3"] {
   border-bottom-color: var(--color-primary);
   color: var(--color-primary);
   font-weight: 700;
 }
 #notif-tab1:checked ~ #notif-panel1,
-#notif-tab2:checked ~ #notif-panel2 { display: block; }
+#notif-tab2:checked ~ #notif-panel2,
+#notif-tab3:checked ~ #notif-panel3 { display: block; }
 
 #agent-tab1:checked ~ .subtab-nav label[for="agent-tab1"],
 #agent-tab2:checked ~ .subtab-nav label[for="agent-tab2"],
@@ -2234,11 +2236,13 @@ footer {
     <!-- Subtab radio inputs -->
     <input type="radio" name="notif-nav" id="notif-tab1" checked>
     <input type="radio" name="notif-nav" id="notif-tab2">
+    <input type="radio" name="notif-nav" id="notif-tab3">
 
     <!-- Subtab nav -->
     <div class="subtab-nav">
       <label for="notif-tab1">Roadmap</label>
       <label for="notif-tab2">Functional Design</label>
+      <label for="notif-tab3">Publishing Design</label>
     </div>
 
     <!-- Subtab panel: Roadmap -->
@@ -2376,6 +2380,114 @@ footer {
     </div>
 
       </div>
+    </div>
+
+    <!-- Subtab panel: Publishing Design -->
+    <div class="subtab-panel" id="notif-panel3">
+      <div class="section-eyebrow">Publishing Design</div>
+      <div class="section-title">Notification Types: People Assist Platform</div>
+      <p class="section-desc">The People Assist platform supports two distinct categories of outbound notifications. Each category has a different governance model, delivery mechanism, and intended purpose. Understanding this distinction is essential for platform and domain teams designing notification flows.</p>
+
+      <!-- Campaign Notifications -->
+      <div class="card" style="margin-bottom:var(--space-sm);">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-purple-dark);margin-bottom:var(--space-sm);">1. Campaign Notifications</div>
+
+        <div class="feature-group">
+          <div class="feature-group-label">What They Are</div>
+          <p style="font-size:13px;color:var(--color-text);line-height:1.6;margin-bottom:var(--space-xs);">Campaign notifications are broadcast communications sent to a defined audience, typically a large population of employees. They are not triggered by a specific business event affecting an individual. Instead, they are scheduled, planned communications — similar in nature to mass mailers — that communicate policy updates, program launches, awareness messages, or recurring reminders.</p>
+          <ul class="feature-list">
+            <li>Open enrollment reminders sent to all eligible employees in a country</li>
+            <li>Annual performance review kickoff communications</li>
+            <li>Global policy change announcements</li>
+            <li>HR program awareness campaigns</li>
+          </ul>
+        </div>
+
+        <div class="card--highlight" style="margin:var(--space-sm) 0;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-purple-dark);margin-bottom:6px;">Governance</div>
+          <p style="font-size:13px;color:var(--color-text);line-height:1.55;margin-bottom:6px;"><strong>Campaign notifications must be delivered exclusively through the Smart Nudge Framework.</strong></p>
+          <p style="font-size:12px;color:var(--color-text-muted);line-height:1.5;">The Smart Nudge Framework provides the governance layer that controls timing, targeting, frequency, and content approval for broadcast communications. Audience segmentation, scheduling, and content validation are all managed through this framework before a notification is dispatched.</p>
+        </div>
+
+        <div class="feature-group">
+          <div class="feature-group-label">Key Characteristics</div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Attribute</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Trigger</td><td>Scheduled or planned event, not a real-time business event</td></tr>
+              <tr><td>Audience</td><td>Broad population, often country or function-wide</td></tr>
+              <tr><td>Governance</td><td>Mandatory. Delivered only via the Smart Nudge Framework</td></tr>
+              <tr><td>Nature</td><td>Mass communication, similar to a mailer</td></tr>
+              <tr><td>Personalization</td><td>Low. Content is largely uniform across recipients</td></tr>
+              <tr><td>Platform Scope</td><td>Explicitly <strong>out of scope for Release 1</strong></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <!-- Personalized Notifications -->
+      <div class="card" style="margin-bottom:var(--space-sm);">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-purple-dark);margin-bottom:var(--space-sm);">2. Personalized Notifications</div>
+
+        <div class="feature-group">
+          <div class="feature-group-label">What They Are</div>
+          <p style="font-size:13px;color:var(--color-text);line-height:1.6;margin-bottom:var(--space-xs);">Personalized notifications are triggered by a specific business event that requires a named individual to take action. The notification is relevant only to that person, at that moment, because of something that has happened in a connected system or workflow.</p>
+          <ul class="feature-list">
+            <li>A manager notified that a direct report's probation review is due</li>
+            <li>An employee receiving a prompt to complete a pending benefits election</li>
+            <li>A worker notified that their submitted leave request has been approved or rejected</li>
+            <li>A task handoff notification asking an employee to confirm attendance at a scheduled training</li>
+          </ul>
+        </div>
+
+        <div class="card--highlight" style="margin:var(--space-sm) 0;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-purple-dark);margin-bottom:6px;">Delivery</div>
+          <p style="font-size:13px;color:var(--color-text);line-height:1.55;margin-bottom:6px;"><strong>Personalized notifications can be delivered directly by the source system, without requiring the Smart Nudge Framework.</strong></p>
+          <p style="font-size:12px;color:var(--color-text-muted);line-height:1.5;">Because these notifications are event-driven and targeted to a specific individual, they do not require the broadcast governance layer. The source system generates the notification payload and delivers it through the platform's notification ingestion layer, keeping notifications low-latency and tightly coupled to the triggering event.</p>
+        </div>
+
+        <div class="feature-group">
+          <div class="feature-group-label">Key Characteristics</div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Attribute</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td>Trigger</td><td>A real-time business event in a source system</td></tr>
+              <tr><td>Audience</td><td>A single named individual (the relevant persona)</td></tr>
+              <tr><td>Governance</td><td>Lightweight. Delivered by the source system directly</td></tr>
+              <tr><td>Nature</td><td>Action-oriented. The recipient is expected to do something specific</td></tr>
+              <tr><td>Personalization</td><td>High. Content is specific to the individual and the event</td></tr>
+              <tr><td>Platform Scope</td><td>In scope for Release 1, with limited initial volume</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <!-- Summary Comparison -->
+      <div class="card" style="margin-bottom:var(--space-sm);">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-purple-dark);margin-bottom:var(--space-sm);">Summary Comparison</div>
+        <div class="table-wrap"><table>
+          <thead><tr><th></th><th>Campaign Notifications</th><th>Personalized Notifications</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Trigger</strong></td><td>Planned or scheduled</td><td>Real-time business event</td></tr>
+            <tr><td><strong>Audience</strong></td><td>Broad population</td><td>Individual persona</td></tr>
+            <tr><td><strong>Delivery</strong></td><td>Smart Nudge Framework (mandatory)</td><td>Source system (direct)</td></tr>
+            <tr><td><strong>Governance</strong></td><td>High</td><td>Lightweight</td></tr>
+            <tr><td><strong>Action Required</strong></td><td>Usually none</td><td>Yes, specific action expected</td></tr>
+            <tr><td><strong>Release 1 Scope</strong></td><td>Out of scope</td><td>In scope</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <!-- Architectural Notes -->
+      <div class="card">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-purple-dark);margin-bottom:var(--space-sm);">Architectural Notes</div>
+        <ul class="feature-list">
+          <li>All notifications, regardless of type, must appear inside the People Assist chat experience. Delivery to the generic Microsoft Teams activity feed is not an acceptable substitute.</li>
+          <li>The platform is responsible for notification ingestion infrastructure, payload validation, and adaptive card contract enforcement. Domain systems — and in the case of campaigns, the Smart Nudge Framework — are responsible for generating notification content and determining targeting logic.</li>
+          <li>Adaptive card structures must conform to standardised platform-defined templates. Ungoverned or dynamic card structures are discouraged, as they introduce fragmentation risk at scale.</li>
+        </ul>
+      </div>
+
     </div>
 
   </section>
